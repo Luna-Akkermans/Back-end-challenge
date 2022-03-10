@@ -1,20 +1,12 @@
-.min-Hcard{
-    min-height: 400px;
-    min-width: 250px;
+
+td { position: relative; }
+
+tr.strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid #111;
+  width: 100%;
 }
 
-
-
-
-
-
-/* Animation for hiding and showing the plus */
-@keyframes showHide {
-    0% {opacity: 1;}
-    100% {transform: rotate(360deg); opacity: 0;}
-
-}
-
-.startAni {
-    animation: showHide 5s ease;
-}
