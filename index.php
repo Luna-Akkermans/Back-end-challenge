@@ -1,5 +1,17 @@
 <?php 
+require_once 'backend/init.php';
 
+$item = $db->prepare("
+SELECT id, name, done FROM items WHERE user = :user");
+
+$itemsQuery->execute([
+    'user' => $_SESSION['user_id']
+]);
+
+$items = $item->rowCount() ? $itemsQuery : [];
+foreach($items as $item){
+    print_r($item);
+}
 ?>
 
 
