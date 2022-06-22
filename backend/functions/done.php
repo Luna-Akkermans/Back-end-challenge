@@ -11,16 +11,32 @@ if(isset($_GET['as'], $_GET['item'])) {
         case 'done':
             $doneQuery = $db->prepare("
                 UPDATE  items
-                SET done = 1;
+                SET done = 1
                 WHERE id = :item
                 AND user = :user
             ");
-            
+
             $doneQuery ->execute([
                 'item' => $item,
                 'user' => $_SESSION['user_id']
             ]);
-        break;               
+        break;
+        
+        case 'undo':
+            $undo = $db->prepare("
+            UPDATE  items
+            SET done = 0
+            WHERE id = :item
+            AND user = :user
+        ");
+        
+        $undo ->execute([
+            'item' => $item,
+            'user' => $_SESSION['user_id']
+        ]);
+    break;
         }
 }
+
+
 header("Location: ../../index.php");

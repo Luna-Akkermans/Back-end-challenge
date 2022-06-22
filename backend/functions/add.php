@@ -17,6 +17,5 @@ if(isset($_POST['name'])) {
     }
 }
 
-$parent = dirname('index.php');
-echo $parent;
+
 header("Location: ../../index.php");

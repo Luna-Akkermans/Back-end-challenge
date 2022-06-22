@@ -23,8 +23,9 @@ $items = $item->rowCount() ? $item : [];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
-<link rel="stylesheet" href="styles/style.css">
 <title>Document</title>
 <div class="list-wrap w-100 align-items-center bg-light p-3 rounded shadow-sm">
     <h1 class="header">To do!</h1>
@@ -35,8 +36,17 @@ $items = $item->rowCount() ? $item : [];
         <li class="d-flex justify-content-between">
             <span class="task <?php echo $item['done'] ? 'finnished-task' : '' ?>"><?=$item['name']?></span>
             <?php if(!$item['done']): ?>
-            <a  href="backend/functions/done.php?as=done&item=<?=$item['id'] ?>"class="btn btn-sm btn-success" href="#">Finnished</a>
+            <a href="backend/functions/done.php?as=done&item=<?=$item['id'] ?>" class="btn btn-sm btn-success"
+                href="#"><i class="fa-solid fa-check"></i></a>
+            <?php else: ?>
+            <div>
+                <a href="backend/functions/done.php?as=undo&item=<?=$item['id']  ?>" class="btn btn-sm btn-warning"><i
+                        class="fa-solid fa-rotate-left"></i></a>
+                <a href="backend/functions/delete.php?item=<?=$item['id']  ?>" class="btn btn-sm btn-danger" > <i class="fa-solid fa-trash-can"></i></a>
+                     
+            </div>
             <?php endif; ?>
+        </li>
         </li>
         <?php endforeach; ?>
     </ul>
