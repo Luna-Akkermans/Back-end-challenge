@@ -14,10 +14,16 @@ body{
             li{
                 margin-bottom: 15px;
                 border-bottom: 2px dashed #ccc;
+                .finnished-task{
+                    text-decoration: line-through;
+                }
                 span{
                     line-height:2;
+                    
                 }
+
             }
+
         }
             form .input{
                 width: 100%;

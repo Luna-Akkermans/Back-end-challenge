@@ -13,6 +13,9 @@ body .list-wrap ul li {
   margin-bottom: 15px;
   border-bottom: 2px dashed #ccc;
 }
+body .list-wrap ul li .finnished-task {
+  text-decoration: line-through;
+}
 body .list-wrap ul li span {
   line-height: 2;
 }

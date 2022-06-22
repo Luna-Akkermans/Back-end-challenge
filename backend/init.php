@@ -3,7 +3,7 @@
 //Start session
 session_start();
 
-$_SESSION['used_id'] = 1;
+$_SESSION['user_id'] = 1;
 
 //Database logic
 $db = new PDO('mysql:dbname=todo;host=localhost', 'root', 'mysql');
